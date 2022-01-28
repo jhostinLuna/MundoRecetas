@@ -1,8 +1,6 @@
-package com.deneb.newsapp.core.platform
+package com.jhostinluna.mundorecetas.core.platform
 
 import android.content.Context
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Injectable class which handles context for access room database.

@@ -1,7 +1,7 @@
-package com.deneb.newsapp.core.platform
+package com.jhostinluna.mundorecetas.core.platform
 
 import android.content.Context
-import com.deneb.newsapp.core.extensions.checkNetworkState
+import com.jhostinluna.mundorecetas.core.extensions.checkNetworkState
 
 
 class NetworkHandler

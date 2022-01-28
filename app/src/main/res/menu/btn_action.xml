@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favorite"
+        android:title="@string/favorite"
+        android:icon="@drawable/ic_baseline_favorite_24_normal"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/cerrar_session"
+        android:title="@string/cerrar_session"
+        app:showAsAction="never"/>
+</menu>

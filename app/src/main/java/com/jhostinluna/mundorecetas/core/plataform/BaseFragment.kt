@@ -1,4 +1,4 @@
-package com.deneb.newsapp.core.platform
+package com.jhostinluna.mundorecetas.core.plataform
 
 import android.app.Activity
 import androidx.lifecycle.ViewModelProvider
@@ -8,11 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.deneb.newsapp.R
-import com.deneb.newsapp.core.functional.DialogCallback
-import com.deneb.newsapp.core.navigation.MainActivity
-import com.deneb.newsapp.core.navigation.PopUpDelegator
-import kotlinx.android.synthetic.main.navigation_activity.*
+import com.jhostinluna.mundorecetas.R
+import com.jhostinluna.mundorecetas.core.functional.DialogCallback
+import com.jhostinluna.mundorecetas.core.navigation.PopUpDelegator
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment: androidx.fragment.app.Fragment() {
@@ -36,7 +34,6 @@ abstract class BaseFragment: androidx.fragment.app.Fragment() {
 
     private fun progressStatus(viewStatus: Int) =
         with(activity) {
-            if (this is MainActivity) this.progress.visibility = viewStatus
         }
 
     override fun onAttach(activity: Activity) {
@@ -54,7 +51,8 @@ abstract class BaseFragment: androidx.fragment.app.Fragment() {
     }
 
     internal fun showErrorWithRetry(title: String, message: String, positiveText: String,
-                                    negativeText: String, callback: DialogCallback) {
+                                    negativeText: String, callback: DialogCallback
+    ) {
         popUpDelegator?.showErrorWithRetry(title, message, positiveText, negativeText, callback)
     }
 

@@ -1,6 +1,8 @@
-package com.deneb.newsapp.core.extensions
+package com.jhostinluna.mundorecetas.core.extensions
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
@@ -13,10 +15,13 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.BaseTarget
 import com.bumptech.glide.request.target.SizeReadyCallback
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
+import com.jhostinluna.mundorecetas.R
+import java.io.File
 
 
 fun View.isVisible() = this.visibility == View.VISIBLE
@@ -32,12 +37,18 @@ fun View.invisible() {
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
-fun ImageView.loadFromUrl(url: String) =
+fun ImageView.loadFromUrl(
+    url: String,
+    requestOptions: RequestOptions = RequestOptions.circleCropTransform()) =
     Glide.with(this.context.applicationContext)
         .load(url)
         .transition(DrawableTransitionOptions.withCrossFade())
+        .apply(requestOptions)
         .into(this)
-
+fun Bitmap.rotate(degrees: Float): Bitmap {
+    val matrix = Matrix().apply { postRotate(degrees) }
+    return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+}
 internal infix fun View.onClick(function: () -> Unit) {
     setOnClickListener { function() }
 }

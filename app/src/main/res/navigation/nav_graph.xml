@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="@string/home"
+    app:startDestination="@id/logginGraph">
+    <navigation
+        android:id="@+id/logginGraph"
+        app:startDestination="@id/loggin">
+        <fragment
+            android:id="@+id/loggin"
+            android:name="com.jhostinluna.mundorecetas.features.fragments.Loggin"
+            android:label="fragment_loggin"
+            tools:layout="@layout/fragment_loggin">
+            <action
+                android:id="@+id/action_loggin_to_registration"
+                app:destination="@id/registration" />
+        </fragment>
+        <fragment
+            android:id="@+id/registration"
+            android:name="com.jhostinluna.mundorecetas.features.fragments.Registration"
+            android:label="fragment_registration"
+            tools:layout="@layout/fragment_registration" />
+        <action
+            android:id="@+id/action_global_homeRecetasFragment"
+            app:destination="@id/homeRecetasFragment" />
+    </navigation>
+
+
+    <fragment
+        android:id="@+id/homeRecetasFragment"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.homeRecetasFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home_recetas">
+        <action
+            android:id="@+id/action_homeRecetasFragment_to_createRecetaFragment"
+            app:destination="@id/createRecetaFragment" />
+        <action
+            android:id="@+id/action_homeRecetasFragment_to_myRecetasFragment"
+            app:destination="@id/myRecetasFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.google.firebase.auth.FirebaseUser"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_homeRecetasFragment_to_createRecetaFragment2"
+            app:destination="@id/createRecetaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myRecetasFragment"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.MyRecetasFragment"
+        android:label="@string/my_recetas"
+        tools:layout="@layout/fragment_my_recetas">
+        <action
+            android:id="@+id/action_myRecetasFragment_to_detalleReceta"
+            app:destination="@id/detalleReceta" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRecetaFragment"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.CreateRecetaFragment"
+        android:label="@string/create_receta"
+        tools:layout="@layout/fragment_create_receta">
+        <action
+            android:id="@+id/action_createRecetaFragment_to_previewCamara"
+            app:destination="@id/previewCamara" />
+        <argument
+            android:name="fotoArgs"
+            android:defaultValue="empty"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_createRecetaFragment_to_previewCamara2"
+            app:destination="@id/previewCamara" />
+        <argument
+            android:name="recetaArgs"
+            app:argType="com.jhostinluna.mundorecetas.features.fragments.Receta"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagenCapturada"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.ImagenCapturada"
+        android:label="fragment_imagen_capturada"
+        tools:layout="@layout/fragment_imagen_capturada">
+        <argument
+            android:name="imageArgs"
+            app:argType="android.graphics.Bitmap"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewCamara"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.PreviewCamara"
+        android:label="fragment_preview_camara"
+        tools:layout="@layout/fragment_preview_camara">
+        <action
+            android:id="@+id/action_previewCamara_to_imagenCapturada"
+            app:destination="@id/imagenCapturada" />
+        <action
+            android:id="@+id/action_previewCamara_to_createRecetaFragment"
+            app:destination="@id/createRecetaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleReceta"
+        android:name="com.jhostinluna.mundorecetas.features.fragments.DetalleReceta"
+        android:label="fragment_detalle_receta"
+        tools:layout="@layout/fragment_detalle_receta">
+        <action
+            android:id="@+id/action_detalleReceta_to_createRecetaFragment"
+            app:destination="@id/createRecetaFragment" />
+        <argument
+            android:name="idRecetaArgs"
+            android:defaultValue="empty"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

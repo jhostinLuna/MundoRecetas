@@ -1,9 +1,9 @@
-package com.deneb.newsapp.core.extensions
+package com.jhostinluna.mundorecetas.core.extensions
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.deneb.newsapp.core.exception.Failure
+import com.jhostinluna.mundorecetas.core.exception.Failure
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) =
     liveData.observe(this, Observer(body))

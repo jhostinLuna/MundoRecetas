@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "596955998055",
+    "project_id": "mundorecetas-60b5b",
+    "storage_bucket": "mundorecetas-60b5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596955998055:android:fb8ea25fb39defd05031c2",
+        "android_client_info": {
+          "package_name": "com.jhostinluna.mundorecetas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596955998055-mnfkc54n5uftd1jl8qde7onihg54cr2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwE-BDTbrojzgi9cEWSsAON5xDI1OXh0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596955998055-mnfkc54n5uftd1jl8qde7onihg54cr2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

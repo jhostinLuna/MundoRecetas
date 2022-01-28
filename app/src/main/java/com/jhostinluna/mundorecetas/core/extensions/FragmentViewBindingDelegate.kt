@@ -1,4 +1,4 @@
-package com.deneb.newsapp.core.extensions
+package com.jhostinluna.mundorecetas.core.extensions
 
 class FragmentViewBindingDelegate {
 }

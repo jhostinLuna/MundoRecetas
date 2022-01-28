@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categorias_array">
+        <item>ensaladas</item>
+        <item>caldos</item>
+        <item>platos calientes</item>
+        <item>postres</item>
+        <item>ensaladas</item>
+        <item>aperitivos</item>
+        <item>verduras y setas</item>
+        <item>pizza bocadillos y tapas</item>
+        <item>desayuno</item>
+    </string-array>
+</resources>

@@ -1,10 +1,12 @@
-package com.deneb.newsapp.core.extensions
+package com.jhostinluna.mundorecetas.core.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.NetworkInfo
 import android.os.Build
+import com.jhostinluna.mundorecetas.R
+import java.io.File
 
 fun Context.checkNetworkState(): Boolean {
     val connectivityManager =
@@ -19,7 +21,13 @@ fun Context.checkNetworkState(): Boolean {
             else -> false
         }
     } else {
-        return connectivityManager.activeNetworkInfo.isConnected
+        return connectivityManager.activeNetworkInfo!!.isConnected
     }
 
+}
+fun Context.getMediaDir(): File {
+    val mediaDir = this?.externalMediaDirs?.firstOrNull()?.let {
+        File(it, this.resources.getString(R.string.app_name)).apply { mkdirs() } }
+    return if (mediaDir != null && mediaDir.exists())
+        mediaDir else this?.filesDir
 }

@@ -1,7 +1,7 @@
 package com.jhostinluna.mundorecetas
 
 import android.app.Application
-import com.jhostinluna.mundorecetas.core.di.networkModule
+import com.jhostinluna.mundorecetas.core.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +14,16 @@ class AndroidApplication: Application() {
             androidLogger()
             androidContext(this@AndroidApplication)
             modules(listOf(
-                networkModule
+                networkModule,
+                googleSignModule,
+                dataServiceModule,
+                databaseModule,
+                viewModelModule,
+                useCaseModule,
+                repositoryModule,
+                viewModelCompartidoModule,
+                myRecetasAdapterModule,
+                firestoreModule
             ))
         }
     }

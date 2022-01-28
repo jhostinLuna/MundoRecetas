@@ -1,8 +1,8 @@
-package com.deneb.newsapp.core.platform
+package com.jhostinluna.mundorecetas.core.plataform
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.deneb.newsapp.core.exception.Failure
+import com.jhostinluna.mundorecetas.core.exception.Failure
 
 abstract class BaseViewModel : ViewModel() {
 
