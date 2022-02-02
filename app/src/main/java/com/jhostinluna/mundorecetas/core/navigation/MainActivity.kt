@@ -1,12 +1,11 @@
 package com.jhostinluna.mundorecetas.core.navigation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,10 +16,12 @@ import com.firebase.ui.auth.AuthUI
 import com.jhostinluna.mundorecetas.R
 import com.jhostinluna.mundorecetas.core.functional.DialogCallback
 import com.jhostinluna.mundorecetas.features.fragments.SaredViewModel
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
+import com.microsoft.appcenter.distribute.Distribute
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import android.content.SharedPreferences
-import com.jhostinluna.mundorecetas.BuildConfig
 
 
 class MainActivity : AppCompatActivity(), PopUpDelegator {
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity(), PopUpDelegator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initAppCenter()
         setSupportActionBar(toolbar)
         // Muestra el nombre de la app en toolbar si es true
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -51,7 +53,13 @@ class MainActivity : AppCompatActivity(), PopUpDelegator {
             if (progress.visibility == View.VISIBLE) progress.visibility = View.GONE
         }
     }
-
+    fun initAppCenter() {
+        Distribute.setEnabledForDebuggableBuild(true)
+        AppCenter.start(
+            application, "13264270-776c-4184-b98c-496d41e2875e",
+            Analytics::class.java, Crashes::class.java, Distribute::class.java
+        )
+    }
     override fun onCreateOptionsMenu(menu: Menu):Boolean {
         super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.btn_action, menu)
