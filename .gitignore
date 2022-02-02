@@ -16,3 +16,5 @@ local.properties
 /android.keystore
 app/release/app-release.apk
 app/release/output-metadata.json
+.idea/deploymentTargetDropDown.xml.rej
+/.idea/
