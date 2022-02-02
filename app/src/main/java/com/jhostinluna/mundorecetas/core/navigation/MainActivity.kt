@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), PopUpDelegator {
     fun initAppCenter() {
         Distribute.setEnabledForDebuggableBuild(true)
         AppCenter.start(
-            application, "13264270-776c-4184-b98c-496d41e2875e",
+            application, "ee7611be-73e5-4c26-8270-af6c55c41909",
             Analytics::class.java, Crashes::class.java, Distribute::class.java
         )
     }
